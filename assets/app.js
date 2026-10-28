@@ -1,6 +1,6 @@
 const cfg=window.CHURCH_CONFIG, main=document.querySelector('main');
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const safeURL=s=>{try{const u=new URL(s,location.origin);return ['http:','https:'].includes(u.protocol)?u.href:''}catch{return ''}};
+const safeURL=s=>{try{const u=new URL(s,document.baseURI);return ['http:','https:'].includes(u.protocol)?u.href:''}catch{return ''}};
 const programmes=[
 {id:'sunday-worship',title:'Sunday Worship',description:'Sunday School starts at 8:00am and Sunday Worship at 9:00am. On the first Sunday of each month, our special Thanksgiving Sunday service starts at 8:00am.',category:'Worship',schedule:'Every Sunday',time:'Sunday School 8:00am · Sunday Worship 9:00am',day:'SUN',frequency:'EVERY WEEK',starts_at:null,image:'assets/royal-embassy-sunday-worship-fellowship.webp',alt:'Worshippers sharing a joyful moment during Sunday service at RCCG Royal Embassy Area in Ado-Ekiti'},
 {id:'wednesday-prayer',title:'Wednesday Mid-week Service',description:'Join our Wednesday mid-week service for prayer and fellowship.',category:'Prayer',schedule:'Every Wednesday',time:'5:30pm',day:'WED',frequency:'EVERY WEEK',starts_at:null,image:'assets/royal-embassy-wednesday-prayer.webp',alt:'A worshipper with eyes closed and hands across her chest at RCCG Royal Embassy Area in Ado-Ekiti'},
